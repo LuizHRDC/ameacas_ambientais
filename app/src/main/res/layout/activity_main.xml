@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="#FFFFFF">
+
+    <TextView
+        android:id="@+id/ameacasAmbientais"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:background="@drawable/custom_text"
+        android:text="Ameaças Ambientais"
+        android:textColor="#FFFFFF"
+        android:textSize="15sp"
+        android:paddingStart="20dp"
+        android:gravity="center_vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/ameacasCadastradas"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:text="Ameaças Cadastradas"
+        android:paddingStart="10dp"
+        android:textSize="18sp"
+        android:gravity="center_vertical"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ameacasAmbientais" />
+
+    <Button
+        android:id="@+id/Adicionar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/custom_button"
+        android:text="NOVA AMEAÇA"
+        android:textAllCaps="false"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ListView
+        android:layout_width="410dp"
+        android:layout_height="607dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="71dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
