@@ -33,26 +33,25 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
         listAmeaca.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 changeToUpdate(id);
             }
 
-            private void changeToAdd(View v) {
-                Intent intent = new Intent(getBaseContext(), add_ameaca.class);
-                startActivity(intent);
-            }
-
-
             private void changeToUpdate(long id) {
                 Intent it = new Intent(getBaseContext(), update_ameaca.class);
                 it.putExtra("ID", id);
                 startActivity(it);
             }
-
         });
+
+        listAmeaca.setOnItemLongClickListener((parent, view, position, id) -> {
+            Ameaca ameaca = (Ameaca) ameacaAdapter.getItem(position);
+            db.removeAmeaca(ameaca);
+            ameacaAdapter.notifyDataSetChanged();
+            return true; // Return true to indicate that the long click event was consumed.
+        });
+
     }
 }
