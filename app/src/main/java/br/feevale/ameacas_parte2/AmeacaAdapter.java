@@ -8,12 +8,12 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 public class AmeacaAdapter extends BaseAdapter {
-    LayoutInflater inflater;
-    AmeacasSQLiteDatabase db;
+    private LayoutInflater inflater;
+    private AmeacasSQLiteDatabase db;
 
-    public AmeacaAdapter(Context ctx, AmeacasSQLiteDatabase db){
-        inflater = LayoutInflater.from(ctx);
-        this.db = db;
+    public AmeacaAdapter(Context context, AmeacasSQLiteDatabase database) {
+        inflater = LayoutInflater.from(context);
+        db = database;
     }
 
     @Override
@@ -32,12 +32,17 @@ public class AmeacaAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View v, ViewGroup parent) {
-        v= inflater.inflate(R.layout.ameaca_list_item, null);
-        TextView txtAmeaca = v.findViewById(R.id.txtAmeaca);
-        TextView txtData = v.findViewById(R.id.txtData);
+    public View getView(int position, View convertView, ViewGroup parent) {
+        if (convertView == null) {
+            convertView = inflater.inflate(R.layout.ameaca_list_item, null);
+        }
+
+        TextView txtAmeaca = convertView.findViewById(R.id.txtAmeaca);
+        TextView txtData = convertView.findViewById(R.id.txtData);
+
         txtAmeaca.setText(db.getAmeacas().get(position).getEndereco());
         txtData.setText(db.getAmeacas().get(position).getData());
-        return v;
+
+        return convertView;
     }
 }

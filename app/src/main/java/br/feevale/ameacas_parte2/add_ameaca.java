@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.content.Intent;
 
 public class add_ameaca extends AppCompatActivity {
     AmeacasSQLiteDatabase db;
@@ -18,16 +19,16 @@ public class add_ameaca extends AppCompatActivity {
         txtDate = findViewById(R.id.txtDate);
         txtEndereco = findViewById(R.id.txtEndereco);
 
-        db = new AmeacasSQLiteDatabase(
-                getBaseContext());
-
+        db = new AmeacasSQLiteDatabase(getBaseContext());
     }
+
     public void changeToAdd(View v){
         Ameaca a = new Ameaca();
         a.setEndereco(txtEndereco.getText().toString());
         a.setData(txtDate.getText().toString());
         a.setDescricao(txtDescricao.getText().toString());
         db.addAmeaca(a);
-        finish();
+
+        startActivity(new Intent(this, MainActivity.class));
     }
 }
