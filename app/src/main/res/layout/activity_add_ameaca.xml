@@ -37,7 +37,7 @@
         app:layout_constraintTop_toBottomOf="@+id/ameacasAmbientais" />
 
     <EditText
-        android:id="@+id/entradaEnd"
+        android:id="@+id/txtEndereco"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -63,10 +63,10 @@
         android:paddingStart="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/entradaEnd" />
+        app:layout_constraintTop_toBottomOf="@+id/txtEndereco" />
 
     <EditText
-        android:id="@+id/entradaData"
+        android:id="@+id/txtDate"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -92,11 +92,11 @@
         android:paddingStart="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/entradaData" />
+        app:layout_constraintTop_toBottomOf="@+id/txtDate" />
 
 
     <EditText
-        android:id="@+id/descricao"
+        android:id="@+id/txtDescricao"
         android:layout_width="0dp"
         android:layout_height="200dp"
         android:layout_marginStart="8dp"
@@ -113,18 +113,19 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <Button
-        android:id="@+id/Adicionar"
+        android:id="@+id/addAmeaca"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/custom_button"
+        android:onClick="changeToAdd"
         android:text="ADICIONAR"
         android:textAllCaps="false"
         app:backgroundTint="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/descricao" />
+        app:layout_constraintTop_toBottomOf="@+id/txtDescricao" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
