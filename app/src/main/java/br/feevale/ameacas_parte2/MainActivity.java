@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         listAmeaca.setAdapter(ameacaAdapter);
         addAmeacaButton = findViewById(R.id.addAmeaca);
 
+        /* Inicia a atividade 'add_ameaca' quando o botão é pressionado, permitindo ao usuário adicionar uma nova ameaça. */
         addAmeacaButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -33,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        /* Configura um listener para cliques em itens da ListView 'listAmeaca' para atualizar a ameaça selecionada. */
         listAmeaca.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -46,11 +49,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        /* Remove uma ameaça com um clique longo em um item da ListView 'listAmeaca' e atualiza a lista. */
         listAmeaca.setOnItemLongClickListener((parent, view, position, id) -> {
             Ameaca ameaca = (Ameaca) ameacaAdapter.getItem(position);
             db.removeAmeaca(ameaca);
             ameacaAdapter.notifyDataSetChanged();
-            return true; // Return true to indicate that the long click event was consumed.
+            return true;
         });
 
     }

@@ -28,6 +28,7 @@ public class AmeacasSQLiteDatabase {
         public static final String COLUMN_DATA = "data";
         public static final String COLUMN_DESCRICAO = "descricao";
 
+        /* Esta função getSQL() gera a instrução SQL para criar a tabela do banco de dados com os campos apropriados. */
         public static String getSQL() {
             String sql = "CREATE TABLE " + TABLE_NAME + " (" +
                     _ID + " INTEGER PRIMARY KEY, " +
@@ -38,6 +39,7 @@ public class AmeacasSQLiteDatabase {
         }
     }
 
+    // Insere uma nova Ameaca no banco de dados com os valores fornecidos.
     public Long addAmeaca(Ameaca a) {
         ContentValues values = new ContentValues();
         values.put(AmeacasTable.COLUMN_ENDERECO, a.getEndereco());
@@ -46,6 +48,7 @@ public class AmeacasSQLiteDatabase {
         return db.insert(AmeacasTable.TABLE_NAME, null,values);
     }
 
+    // Obtém uma Ameaca com o ID fornecido a partir do banco de dados.
     @SuppressLint("Range")
     public Ameaca getAmeaca(Long id) {
         String cols[] = {AmeacasTable._ID, AmeacasTable.COLUMN_ENDERECO, AmeacasTable.COLUMN_DESCRICAO, AmeacasTable.COLUMN_DATA};
@@ -66,6 +69,7 @@ public class AmeacasSQLiteDatabase {
         return a;
     }
 
+    // Obtém uma lista de Ameacas a partir do banco de dados.
     @SuppressLint("Range")
     public List<Ameaca> getAmeacas() {
         String cols[] = {AmeacasTable._ID, AmeacasTable.COLUMN_ENDERECO,
@@ -85,11 +89,13 @@ public class AmeacasSQLiteDatabase {
         return ameacas;
     }
 
+    // Remove uma Ameaca do banco de dados com base no objeto Ameaca fornecido.
     public Integer removeAmeaca(Ameaca a){
         String args[] = {a.getId().toString()};
         return db.delete(AmeacasTable.TABLE_NAME, AmeacasTable._ID + "=?", args);
     }
 
+    // Atualiza uma Ameaca no banco de dados com base no objeto Ameaca fornecido.
     public Integer updateAmeaca(Ameaca a){
         String args[] = {a.getId().toString()};
         ContentValues values = new ContentValues();
@@ -99,6 +105,7 @@ public class AmeacasSQLiteDatabase {
         return db.update(AmeacasTable.TABLE_NAME, values, AmeacasTable._ID + "=?", args);
     }
 
+    // Classe auxiliar para gerenciar a criação e atualização do banco de dados SQLite.
     private class AmeacasSQLiteDatabaseHelper extends SQLiteOpenHelper {
         public AmeacasSQLiteDatabaseHelper() {
             super(ctx, DATABASE_NAME, null, DATABASE_VERSION);}

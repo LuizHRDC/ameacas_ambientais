@@ -10,6 +10,7 @@ public class add_ameaca extends AppCompatActivity {
     AmeacasSQLiteDatabase db;
     EditText txtEndereco, txtDate, txtDescricao;
 
+    // Inicializa a interface e o banco de dados.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +23,7 @@ public class add_ameaca extends AppCompatActivity {
         db = new AmeacasSQLiteDatabase(getBaseContext());
     }
 
+    // Adiciona uma nova ameaça ao banco de dados e inicia MainActivity.
     public void changeToAdd(View v){
         Ameaca a = new Ameaca();
         a.setEndereco(txtEndereco.getText().toString());
